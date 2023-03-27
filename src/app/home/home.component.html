@@ -1,0 +1,46 @@
+<div >
+<ngb-carousel *ngIf="popularProducts">
+  <ng-template ngbSlide *ngFor="let item of popularProducts">
+    <div class="row d-flex justify-content-between">
+      <span class="fw-bold fst-italic"><p>Our highly purchahed products..</p></span>
+      <div class="picsum-img-wrapper col-md-6 justify-content-center d-flex">
+        <a routerLink="/details/{{ item.id }}"
+          ><img
+            class="product-header-img img-fluid"
+            src="{{ item.image }}"
+            alt="Random first slide"
+        /></a>
+      </div>
+      <div class="   col-md-6 opacity-1 bg-gradient ">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+        <a routerLink="/details/{{ item.id }}" class="btn btn-primary">Buy Now</a>
+      </div>
+      
+    </div>
+    
+  </ng-template>
+</ngb-carousel>
+</div>
+<div class="row shadow-lg mb-5">
+  <div class="col-sm-11  border-top border-bottom justify-content-center d-flex m-2 bg-black bg-opacity-10 fw-bold" >
+    <h1 class="fw-bold fst-italic">Let's Follow Trends..</h1>
+  </div>
+  <div class="col-sm-12 col-md-4 d-flex justify-content-around card border-0 shadow-lg p-3 mt-2" *ngFor="let item of trendyProducts">
+      <div class="card m-2" style="width: 18rem; ">
+        <img src="{{ item.image }}"  class="card-img-top c-image" alt="...">
+        <div class="card-body justify-content-center d-flex">
+          <h4 class="card-title fw-bolder">{{ item.name }}</h4>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item text-success fst-italic fw-semibold"><span class="text-black">Price : <i class="bi bi-currency-rupee"></i></span>{{item.price }} <span class="text-decoration-line-through text-black">{{(item.price)*(5/100)}} Off</span></li>
+        </ul>
+        <div class="card-body">
+          <a  class="btn btn-outline-primary m-1" routerLink="/details/{{ item.id }}">View Details </a>
+          <a  class="btn btn-outline-info m-1" routerLink="/details/{{ item.id }}">Add to Cart</a>
+        </div>
+      </div>
+      </div>
+      </div>
+      <app-footer></app-footer>
+

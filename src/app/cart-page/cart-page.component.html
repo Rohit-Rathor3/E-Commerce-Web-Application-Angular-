@@ -1,0 +1,48 @@
+<div class="cart-page container shadow-lg">
+    <div class="col-md-8 justify-content-center d-flex" ><h2>Your Cart</h2></div>
+    <div class="row">
+        <div class="col-md-8 details">
+         <ul *ngFor="let item of cartData">
+            <li>
+                <img src="{{item.image}}" alt="">
+            </li>
+            <li>
+                <span>{{item.name}}</span>
+            </li>
+        <li>
+            <span>Price : {{item.price}}</span>
+        </li>
+    <li>
+        <span>Quantity : {{item.quantity}}</span>
+    </li>
+    <li>
+        <button class="form-button btn btn-danger text-white" (click)="removeToCart(item.id)">Remove to cart</button>
+    </li>
+
+         </ul>
+         
+         
+        </div>
+        <div class="col-md-4 summary">
+         <h3 class="fw-bold">Summary</h3>
+         <ul>
+            <li>
+                <span>Amount </span><span>{{priceSummary.price}}</span>
+            </li>
+            <li>
+                <span>Tax</span><span>{{priceSummary.tax}}</span>
+            </li>
+            <li>
+                <span>Delivery </span><span>{{priceSummary.delivery}}</span>
+            </li>
+            <li>
+                <span>Discount</span><span>- {{priceSummary.discount}} </span>
+            </li>
+            <li>
+                <span><h4> Total</h4></span> <span><h4 class="text-success"> <i class="bi bi-currency-rupee"></i>{{priceSummary.total}}</h4></span>
+            </li>
+            <button class="form-button max-width btn btn-success text-white" (click)="checkout()">Checkout</button>
+         </ul>    
+        </div>
+    </div>
+</div>

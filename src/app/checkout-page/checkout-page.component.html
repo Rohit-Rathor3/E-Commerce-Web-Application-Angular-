@@ -1,0 +1,28 @@
+<div class="checkout ">
+  <div class="sm-md-8 d-flex justify-content-center shadow">
+    <h2 class="fw-bolder fst-italic">Checkout Your Orders..</h2 >
+  </div>
+  <p class="p_message">{{orderMsg}}</p>
+  <div class="row shadow-lg ">
+    <div class="col-sm-7 shipping-address">
+        <h3 class="bg-gradient">Add Shipping address</h3>
+        <form action="" class="common-form" #orderData="ngForm" (ngSubmit)="orderNow(orderData.value)">
+            <input type="text" class="form-input" name="email" placeholder="Enter your email" ngModel  required/>
+            <input type="text" class="form-input" name="address" placeholder="Enter your address"  ngModel required/>
+            <input type="text" class="form-input" name="contact" placeholder="Enter your contact details"  ngModel required/>
+            <button class="form-button mb-4 btn-success btn text-white" [disabled]="orderData.invalid" >Order Now</button>
+        </form>
+    </div>
+    <div class="col-sm-5">
+        <div class="mt-5">
+          <span class="fw-bold">Choose payment mode</span><br>
+          <select name="" id="" required class="ms-3">
+            <option value="" >UPI/BHip-upi/phonepe</option>
+            <option value="">E-banking/Net-banking</option>
+            <option value="" selected>Cash on devlivery</option>
+          </select>
+          <h4 class="mt-5 fst-italic fw-semibold ">Total Payment : <span class="text-success"><i class="bi bi-currency-rupee "></i>{{totalPrice}}</span></h4>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="add-product row d-flex justify-content-center">
+    <div class="col-md-8">
+        <h1 class="fw-semibold ">Add New Product</h1>
+    </div>
+    
+
+    <div class="col-md-8 d-flex justify-content-center col-sm-12 shadow-lg">
+        <p class="p_message">{{productMessage}}</p>
+        <form  #addProduct="ngForm" class="common-form m-3" (ngSubmit)="submit(addProduct.value)">  
+            <input type="text" class="form-input" placeholder="Enter Product Name" name="name" ngModel  required/>
+            <input type="text" class="form-input" placeholder="Enter Product Price" name="price" ngModel required/>
+            <input type="text" class="form-input" placeholder="Enter Product Color" name="color" ngModel required/>
+            <input type="text" class="form-input" placeholder="Enter Product Category" name="category" ngModel required/>
+            <textarea type="text" class="form-input" placeholder="Enter Product Description" name="description" required ngModel></textarea>
+            <input type="text" class="form-input" placeholder="Enter Product Image Url" name="image" ngModel required/>
+            <button class="form-button" [disabled]="addProduct.invalid">Add Product</button>
+        </form>
+    </div>
+    
+
+</div>

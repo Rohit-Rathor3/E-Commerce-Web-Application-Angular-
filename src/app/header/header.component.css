@@ -1,0 +1,91 @@
+.header-conatiner{
+    border:1px solid #ddd;
+    border-radius: 40px;
+}
+.logo h1 a{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color:darkslategrey;
+    font-weight: bolder;
+}
+.logo{
+  
+    border-radius:40px;
+}
+ .nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 2px;
+}
+.header-conatiner .nav h1{
+    margin: 0;
+    font-size: 40px;
+    font-stretch: extra-condensed;
+}
+
+.menu ul{
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+    justify-content: space-between;
+    margin-top: 2px;
+}
+
+nav li{
+    padding-left:15px;
+    padding-top:15px;
+}
+.nav li a{
+    text-decoration: none;
+    color:whitesmoke;
+    cursor: pointer;
+}
+
+.nav .nav-search{
+    margin-top:5px;
+    flex: 1;
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.nav .nav-search input{
+    flex:1;
+    color:blueviolet;
+    border:1px solid blueviolet;
+    height:39px;
+    border-right:0;
+}
+.nav .nav-search button{
+    color:blueviolet;
+    border:1px solid blueviolet;
+    height: 39px;
+    border-left:0px;
+}
+h1 a{
+    color:blueviolet;
+    text-decoration: none;
+}
+
+.suggested-result{
+  position: absolute;
+  display: list-item !important;
+  z-index: 10;
+  background-color: #fff;
+  width: 300px;
+  top: 45px;
+  border: 1px solid #ddd;
+}
+.suggested-result li{
+    border: 1px solid #bbb;
+    padding: 5px;
+}
+.suggested-result li a{
+    cursor: pointer;
+    color: blueviolet;
+}
+
+
+

@@ -1,0 +1,61 @@
+<div class="container m-2 header-conatiner shadow-lg">
+  <div class="row">
+    <div class="col-sm-12 col-md-4 logo">
+      <h1 ><a routerLink="/" ><i class="bi bi-basket"></i>Gwalior-Mart </a></h1>
+    </div>
+    <div class="col-sm-12 col-md-4">
+      <nav class="nav">
+        <div *ngIf="menuType === 'default' || menuType=='user'" class="nav-search shadow-lg">
+          <input 
+            #searchInput
+            type="text"
+            placeholder="Search for Products"
+            (keyup)="searchProduct($event)"
+            (blur)="hideSearch()"
+          />
+          <button (click)="submitSearch(searchInput.value)">Search</button>
+          <ul class="suggested-result" *ngIf="serachResult">
+            <li *ngFor="let item of serachResult">
+              <a (mousedown)="redirectToDetails(item.id)">{{ item.name }}</a>
+            </li>
+          </ul>
+        </div>
+        </nav>
+    </div>
+
+    <div class="col-sm-12 col-md-4 ">
+      <div [ngSwitch]="menuType" class="menu m-3">
+        <ul *ngSwitchCase="'default'" >
+          <li class=""><span></span><a class="btn btn-primary" href="seller-auth"><i class="bi bi-person-fill-check "></i> Seller</a></li>
+          <li class=""><a class="btn btn-primary"  href="/"><span><i class="bi bi-house-check-fill"></i></span> Home</a></li>
+          <li class=""><a class="btn btn-primary"  routerLink="/user-auth"><span><i class="bi bi-person-fill-add"></i></span> SignUp</a></li>
+          <li class=""><a class="btn btn-primary"  href=""><span><i class="bi bi-cart-check-fill"></i></span> Cart({{cartItem}})</a></li>
+        </ul>
+        <ul *ngSwitchCase="'user'" class="justify-content-between">
+          <div class="col-md-6"><li><a href="/" class="btn btn-primary"><span><i class="bi bi-house-check-fill"></i></span> Home</a></li></div>
+          <div class="col-md-6"><li><a  class="btn btn-primary" (click)="userContent()">{{userName|titlecase}} <i class="bi bi-list"></i></a></div>
+          
+          </ul>
+          
+        <ul *ngSwitchCase="'seller'">
+              
+              <li class="shadow-lg">
+                <a  class="btn btn-primary" (click)="sellerContent()">{{ sellerName | titlecase }} <i class="bi bi-list"></i></a>
+              </li>
+            </ul>
+        
+    </div>
+  </div>
+</div>
+<div *ngIf="showUserContent" class="col-sm-12  col-md-8 d-flex justify-content-around list-unstyled mb-3">
+  <li class="shadow-lg"><a routerLink="/my-orders" class="btn btn-primary"><span><i class="bi bi-bag-fill"></i></span> My Order</a></li>
+  <li class="shadow-lg"><a [routerLink]="cartItem>0?'/cart-page':null" class="btn btn-primary"><span><i class="bi bi-cart-check-fill"></i></span> Cart({{cartItem}})</a></li>
+  <li class="shadow-lg"><a (click)="userLogout()" class="btn btn-primary"><span><i class="bi bi-box-arrow-in-right"></i></span> Logout</a></li>
+</div>
+<div *ngIf="showSellerContent" class="col-sm-12 col-md-8 d-flex justify-content-between list-unstyled mb-3">
+  <li class="shadow-lg "><a class="btn btn-primary" href="seller-home"><i class="bi bi-card-checklist"></i> Product List</a></li>
+  <li class="shadow-lg "><a class="btn btn-primary" href="seller-add-product"><i class="bi bi-file-earmark-plus"></i> Add Product</a></li>
+  <li class="shadow-lg "><a class="btn btn-primary" (click)="sellerLogout()"><span><i class="bi bi-box-arrow-in-right"></i></span> LogOut</a></li>
+</div>
+
+

@@ -1,0 +1,29 @@
+
+<div class="seller-auth shadow-lg">
+    <div *ngIf="!showLogin" class="sign-up">
+        <h1 class="text-bg-info opacity-75">--Seller Registration Form--</h1>
+        <form class="common-form" #sellerSignUp="ngForm" (ngSubmit)="signUp(sellerSignUp.value)">
+            <input class="form-input" type="text" placeholder="Enter Name" name="name" ngModel required #name="ngModel"/>
+            <p class="error-p" *ngIf="name.invalid && name.touched"><span>Please enter name</span></p>
+            <input class="form-input" type="email" placeholder="Enter Email" name="email" ngModel required #email="ngModel" email/>
+            <p class="error-p" *ngIf="email.invalid && email.touched"><span>Please enter email</span></p>
+            <input class="form-input" type="password" placeholder="Enter Password"  name="password" ngModel required #password="ngModel" minlength="5" maxlength="20"/>
+            <p class="error-p" *ngIf="password.invalid && password.touched"><span>Please enter password</span></p>
+            
+            <button class="btn btn-outline-primary form-button" [disabled]="sellerSignUp.invalid"  >SignUp</button>
+            <a class="auth-toggle-link " (click)="openLogin()">Already Have Account? Click to Login</a>
+        </form>
+    </div>
+
+    <!-- Login Area-->
+    <div class="login" *ngIf="showLogin">
+        <h1 class="text-bg-info opacity-75">--Seller Login Form--</h1>
+        <p class="error-p"> {{authError}}</p>
+        <form class="common-form" #sellerLogin="ngForm" (ngSubmit)="login(sellerLogin.value)">
+            <input class="form-input" type="email" placeholder="Enter Email" name="email" ngModel required/>
+            <input class="form-input" type="password" placeholder="Enter Password"  name="password" ngModel required/>
+            <button class="form-button btn btn-outline-primary" [disabled]="sellerLogin.invalid">Login</button>
+            <a class="auth-toggle-link" (click)="openSignUp()">Don't Have Account? Click to SignUp</a>
+        </form>
+    </div>
+</div>
